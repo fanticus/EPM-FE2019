@@ -1,0 +1,57 @@
+.contact {
+    @include flex(row, wrap, space-between, stretch, stretch);
+    &__map {
+        width: 50%;
+    }
+
+    &__info {
+        @include paddingVertical(41px, 52px);
+        padding-left: 48.4px;
+        width: 50%;
+        background-color: #ffe26d;
+    }
+
+    &__title {
+        text-align: left;
+        margin-bottom: 34px;
+    }
+
+    &__form {
+        @include flex(column, nowrap, flex-start, stretch, stretch);
+        .form__label {
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font: 800 10px $font__main;
+            color: #323232;
+        }
+        .form__input {
+            @include paddingHorizontal(10px, 10px);
+            margin-bottom: 19px;
+            width: 311px;
+            height: 44px;
+            border: none;
+            box-shadow: 0.5px 0.9px 1px 0 rgba(22, 22, 23, 0.09);
+            background-color: #fefefe;
+            font: 19px/1px $font__main;
+        }
+        .form__area {
+            padding-top: 20px;
+            margin-bottom: 15px;
+            height: 145px;
+        }
+        .form__btn {
+            @extend .form__input;
+            @include animation__speed(450ms, ease-in);
+            margin-bottom: 0;
+            background-color: #62497c;
+            border-radius: 0;
+            font: 600 10px $font__main;
+            color: #fefefe;
+            &:hover {
+                cursor: pointer;
+                background-color: #fefefe;
+                color: #62497c;
+            }
+        }
+    }
+}

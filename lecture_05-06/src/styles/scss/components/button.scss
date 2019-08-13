@@ -1,0 +1,20 @@
+.btn {
+    @include animation__speed(450ms, ease-in);
+    @include paddingVertical(14px, 13px);
+    @include paddingHorizontal(26px, 26px);
+    display: inline-block;
+    border: 0;
+    border-radius: 2.9px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font: 800 10.3px $font__main;
+    cursor: pointer;
+    &--middle {
+        @include paddingVertical(13px, 15px);
+        @include paddingHorizontal(25px, 23px);
+    }
+    &--small {
+        @include paddingVertical(8px, 8px);
+        @include paddingHorizontal(29px, 29px);
+    }
+}

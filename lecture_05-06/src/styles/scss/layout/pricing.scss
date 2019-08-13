@@ -1,0 +1,49 @@
+.pricing {
+    padding: 77px 0px 87px;    
+    overflow: hidden;
+    &__list {
+        @include flex(row, wrap, space-between, stretch, stretch);
+        text-align: center;
+        list-style: none;
+        &__item {
+            @include animation__speed(450ms, ease-in);
+            min-width: 225px;
+            .item__title {
+                margin-bottom: 17px;
+                text-transform: uppercase;
+                font: 800 14.5px $font__main;
+                color: #040405;
+            }
+            .item__price {
+                font: 700 13.9px $font__main;
+                color: rgba(4, 4, 5, 0.39);
+            }
+            .item__container {
+                @include animation__speed(400ms, ease-in);
+            }
+            .item__info {
+                padding: 17px 0 14px;
+                list-style: none;
+                li {
+                    margin-bottom: 10px;
+                    font: 700 10.5px Helvetica;
+                    color: #040405;
+                }
+            }
+            .item__btn {
+                background-color: #ffe26d;
+                &:hover {
+                    background-color: #62497c;
+                    color: #ffffff;
+                }
+            }
+            &:nth-child(2) {
+                border-left: 2px solid #e8e8e8;
+                border-right: 2px solid #e8e8e8;
+            }
+            &:hover .item__container {
+                @include animation__item__pricing();
+            }
+        }
+    }
+}

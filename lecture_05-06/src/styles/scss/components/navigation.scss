@@ -1,0 +1,27 @@
+.nav {
+    &__item {
+        margin-right: 33px;
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+    &__list {
+        @include flex(row, wrap, flex-start, flex-start, flex-start);
+        list-style: none;
+    }
+    &__link {
+        @include animation__speed(450ms, ease-in);
+        text-transform: uppercase;
+        text-decoration: none;
+        font: 700 10.5px/7px $font__main;
+        color: #ffffff;
+        &--active {
+            color: #ffe26d;
+        }
+        &:hover {
+            @include animation__item__nav();
+            display: inline-block;
+            color: #ffe26d;
+        }
+    }
+}

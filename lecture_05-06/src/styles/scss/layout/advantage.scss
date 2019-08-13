@@ -1,0 +1,35 @@
+.advantage {
+    @include flex(row, wrap, space-between, stretch, stretch);
+    &__item {
+        width: 160px;
+    }
+    &__icon {
+        @include flex(row, nowrap, center, center, center);
+        @include marginHorizontal(auto, auto);
+        margin-bottom: 29px;
+        background-color: #62497c;
+        border-radius: 50%;
+        width: 81px;
+        height: 81px;
+    }
+    &__title {
+        margin-bottom: 18px;
+        text-transform: uppercase;
+        font: 700 14.5px $font__main;
+        color: #62497c;
+    }
+    &__description {
+        margin-bottom: 29px;
+        letter-spacing: -0.1px;
+        font: 13.5px/24px Helvetica;
+        color: rgba(4, 4, 5, 0.5);
+    }
+    &__btn {
+        background-color: #ffe26d;
+        color: #323232;
+        &:hover {
+            background-color: #62497c;
+            color: #ffffff;
+        }
+    }
+}

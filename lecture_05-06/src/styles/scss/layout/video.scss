@@ -1,0 +1,61 @@
+.video {
+    @include paddingVertical(80px, 114px);
+    background-color: #62497c;
+    overflow: hidden;
+    &__slider {
+        margin-left: -388px;
+        width: 2178px;
+        .slider__item {
+            @include marginHorizontal(18px, 18px);
+            width: 690px;
+            float: left;
+        }
+    }
+    &__info {
+        @include flex(row, nowrap, space-between, flex-start, flex-start);
+        margin-top: 23px;
+    }
+    &__title {
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        font: 800 10.6px $font__main;
+        color: #fefefe;
+    }
+    &__time {
+        @extend .video__title;
+    }
+    &__preview {
+        @include animation__speed(450ms, ease-in);
+        position: relative;
+        height: 461px;
+        &:hover:before {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        &:before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            content: "";
+        }
+        .preview__play {
+            position: absolute;
+            left: 41%;
+            top: 36%;
+            width: 121px;
+            height: 121px;
+            cursor: pointer;
+            &:focus {
+                outline: none;
+                animation: pulse 1s ease-in-out infinite;
+            }
+        }
+    }
+    &__image {
+        width: 690px;
+        height: 461px;
+        object-position: center;
+        object-fit: cover;
+    }
+}

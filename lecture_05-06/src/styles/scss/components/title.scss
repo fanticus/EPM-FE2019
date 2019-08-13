@@ -1,0 +1,10 @@
+.title {
+    margin-bottom: 37px;
+    letter-spacing: 0.1px;
+    text-align: center;
+    font: 700 43px $font__main;
+    color: #040405;
+    &--invert {
+        color: #fefefe;
+    }
+}

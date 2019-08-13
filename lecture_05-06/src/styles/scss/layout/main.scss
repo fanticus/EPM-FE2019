@@ -1,0 +1,20 @@
+.main {
+    padding-top: 78.4px;
+    border-bottom: 2px solid #dcd8d8;
+    &__container {
+        @include flex(row, wrap, space-between, center, center);
+        .container__description {
+            max-width: 442px;
+            font: 100 29.5px Roboto;
+            color: #040405;
+        }
+        .container__icon {
+            width: 188px;
+            height: 195px; 
+        }
+        &__advantage {
+            @include paddingVertical(71px, 58px);
+            text-align: center;
+        }
+    }
+}

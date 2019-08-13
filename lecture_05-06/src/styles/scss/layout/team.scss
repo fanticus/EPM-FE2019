@@ -1,0 +1,49 @@
+.team {
+    padding-top: 69px;
+    &__container {
+        @include flex(row, wrap, space-between, stretch, stretch);
+        margin-bottom: 61.1px;
+    }
+    .container {
+        width: 790px;
+    }
+    .person__item {
+        @include marginHorizontal(43.2px, 43.6px);
+        margin-bottom: 64.1px;
+    }
+    .person__preview {
+        @include animation__speed(450ms, ease-in);
+        margin-bottom: 28px;
+        position: relative;
+        height: 172.4px;
+        width: 172.3px;
+        border-radius: 50%;
+        overflow: hidden;
+        cursor: pointer;
+        &:hover:before {
+            background-color: #62497c;
+            opacity: 0.6;
+        }
+        &:before {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            content: "";
+        }
+    }
+    .person__image {
+        width: 100%;
+    }
+    .person__name {
+        margin-bottom: 11px;
+        text-align: center;
+        text-transform: uppercase;
+        font: 800 14.5px $font__main;
+        color: #040405;
+    }
+    .person__job {
+        text-align: center;
+        font: 14.5px $font__main;
+        color: rgba(4, 4, 5, 0.39);
+    }
+}

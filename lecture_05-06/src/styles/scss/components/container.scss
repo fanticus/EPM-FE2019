@@ -1,0 +1,20 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+.container {
+    @include marginHorizontal(auto, auto);
+    width: 694px;
+    &--full-width {
+        width: 100%;
+    }
+}
+
+.width__container {
+    @include marginHorizontal(auto, auto);
+    width: 1400px;
+}
+
+ 

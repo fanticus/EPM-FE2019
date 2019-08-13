@@ -1,0 +1,64 @@
+.home {
+    height: 692.6px;
+    background-size: contain;
+    background: center no-repeat;
+    &__slider {
+        position: relative;
+        .slider__item {
+            @include flex(row, nowrap, flex-start, center, center);
+            height: 100%;
+        }
+        .slider__title {
+            margin-left: -2px;
+            max-width: 472px;
+            letter-spacing: -0.9px;
+            font: 700 40.5px $font__main;
+            color: #ffffff;
+        }
+        .slider__description {
+            @include marginVertical(29px, 36px);
+            max-width: 418px;
+            letter-spacing: 0.1px;
+            font: 100 18.9px Roboto;
+            color: #ffffff;
+        }
+        .slider__btn {
+            @include animation__speed(450ms, ease-in);
+            background-color: #ffe26d;
+            margin-bottom: 78px;
+            margin-left: 2px;
+            &:hover {
+                background-color: #62497c;
+                color: #ffffff;
+            }
+        }
+        .dotted {
+            bottom: 38px;
+            width: 100%;
+            position: absolute;
+            &__list {
+                @include flex(row, wrap, flex-start, flex-start, flex-start);
+                list-style: none;
+            }
+            &__item {
+                @include animation__speed(450ms, ease-in);
+                margin-right: 7px;
+                width: 8px;
+                height: 8px;
+                background-color: #ffffff;
+                border-radius: 50%;
+                opacity: 0.5;
+                cursor: pointer;
+                &:first-child {
+                    margin-left: -3px;
+                }
+                &--active {
+                    opacity: 1;
+                }
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
