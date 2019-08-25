@@ -1,0 +1,80 @@
+.nav {
+    &__item {
+        padding: 8px;
+    }
+    &__list {
+        @include flex(row, nowrap, space-between, stretch, stretch);
+        width: 434px;
+        list-style: none;
+        .nav__link {
+            @include animation__speed(450ms, ease-in);
+            text-transform: uppercase;
+            text-decoration: none;
+            font: 700 10.5px/7px $font__main;
+            color: #ffffff;
+            &--active {
+                color: #ffe26d;
+            }
+        }
+    }
+    &__button {
+        @include animation__speed(450ms, ease-in);
+        padding: 10px 15px;
+        position: fixed;
+        z-index: 2;
+        right: 35px;
+        top: 30px;
+        background: rgba(0, 0, 0, 0.28);
+        border: none;
+        color: white;
+        .nav__button__icon {
+            width: 20px;
+            height: 23px;
+        }
+        &:focus ~ .nav__container__list .nav__list {
+            @include flex(column, nowrap, center, center, center);
+            width: 100%;
+            height: 100%;
+        }
+        &:focus ~ .nav__container__list {
+            @include animation__speed(450ms, ease-in);
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            min-height: 300px;
+            width: 100vw;
+            background: rgba(0, 0, 0, 0.83);
+            overflow: hidden;
+        }
+    }
+}
+
+@media screen and (max-width: 768px)  {
+    .nav__button {
+        display: block;
+    }
+    .nav__list {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px)  {
+    .nav__button {
+        display: none;
+    }
+    .nav__list {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .nav__item {
+        &:hover .nav__link {
+            @include animation__item__nav();
+            display: inline-block;
+            color: #ffe26d;
+        }
+    }
+}

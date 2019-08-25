@@ -1,0 +1,105 @@
+.home {
+    &__container {
+        @include marginHorizontal(auto, auto);
+        height: 100%;
+        position: relative;
+    }
+    &__slider {
+        position: relative;
+        .slider__item {}
+        .slider__title {
+            letter-spacing: -0.9px;
+            font-weight: 700;
+            font-family: $font__main;
+            color: #ffffff;
+        }
+        .slider__description {
+            margin-top: 29px;
+            max-width: 418px;
+            letter-spacing: 0.1px;
+            font: 100 18.9px Roboto;
+            color: #ffffff;
+        }
+        .slider__btn {
+            background-color: #ffe26d;
+            margin-top: 24px;
+            margin-left: 2px;
+        }
+        .dotted {
+            bottom: 25px;
+            position: absolute;
+            &__list {
+                @include flex(row, wrap, flex-start, flex-start, flex-start);
+                list-style: none;
+            }
+            &__item {
+                margin-right: 7px;
+                width: 7px;
+                height: 7px;
+                background-color: #ffffff;
+                border-radius: 50%;
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .home {
+        height: 60vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: #24415f;
+        background-position: top;
+        &__container {
+            padding-top: 20vh;
+        }
+    }
+    .slider__title {
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 596px) {
+    .home {
+        height: 100vh;
+        min-height: 320px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .home {
+        height: 692.6px;
+        background-size: contain;
+        background: center no-repeat;
+        &__container {
+            padding-top: 183px;
+        }
+    }
+    .slider__title {
+        max-width: 472px;
+        font-size: 40.5px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .slider__btn {
+        @include animation__speed(450ms, ease-in);
+        &:hover {
+            background-color: #62497c;
+            color: #ffffff;
+        }
+    }
+    .dotted {
+        &__item {
+            @include animation__speed(450ms, ease-in);
+            cursor: pointer;
+            &--active {
+                opacity: 1;
+            }
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
