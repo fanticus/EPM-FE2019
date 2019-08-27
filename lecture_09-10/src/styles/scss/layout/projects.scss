@@ -1,0 +1,72 @@
+.projects {
+    .project__item {
+        @include paddingHorizontal(0, 0);
+        width: 25%;
+        .project__preview {
+            width: 100%;
+        }
+        .project__info {
+            @include paddingVertical(45px, 45px);
+            @include paddingHorizontal(43px, 30px);   
+            min-height: 156px;
+            .project__name {
+                text-align: left;
+                margin-bottom: 9px;
+            }
+            .project__description {
+                margin-bottom: 11px;
+                letter-spacing: -0.1px;
+                color: rgba(4, 4, 5, 0.5);
+            }
+            .project__btn {
+                background-color: #ffffff;
+                font-size: 9.9px;
+            }
+        }
+        &:nth-child(2n+1) {
+            background-color: #efefef;
+        }
+        &:nth-child(2n) {
+            background-color: #e4e4e4;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .projects {
+        padding-top: 38px;
+        &__list {
+            margin-top: 35px;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .projects {
+        padding-top: 48px;
+        &__list {
+            margin-top: 47px;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .projects {
+        .project__item {
+            @include animation__speed(450ms, ease-in);
+            &:hover .project__btn {
+                background-color: #62497c;
+                color: #ffffff;
+            }
+            &:hover {
+                background-color: #ffe26d;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .project__preview {
+        height: 484.1px;
+    }
+}

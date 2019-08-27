@@ -1,0 +1,105 @@
+.blog {
+    &__container {
+        @include marginHorizontal(auto, auto);
+        &__description {
+            text-align: center;
+        }
+    }
+    &__item {
+        @include paddingHorizontal(15px, 15px);
+        max-width: 237px;
+        background-color: #ffffff;
+    }
+    &__title {
+        @include marginHorizontal(16px, 14px);
+        @include marginVertical(32px, 16px);
+    }
+    &__preview {
+        width: 100%;
+    }
+    &__date {
+        margin-bottom: 15px;
+        text-align: center;
+        font: 13.5px/1.74 Helvetica;
+        color: rgba(4, 4, 5, 0.5);
+    }
+    &__description {
+        @extend .blog__date;
+        margin-bottom: 23px;
+        color: #040405;
+    }
+    &__btn {
+        @include marginHorizontal(auto, auto);
+        background-color: #ececec;
+    }
+}
+
+@media screen and (max-width: 596px) {
+    .blog {
+        &__container {
+            width: auto;
+        }
+    }
+}
+
+@media screen and (min-width: 596px) {
+    .blog {
+        &__container {
+            width: 490px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .blog {
+        @include paddingVertical(38px, 50px);
+        &__container {
+            justify-content: space-around;
+        }
+        &__item {
+            margin-top: 35px;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .blog {
+        @include paddingVertical(64px, 88px);
+        &__container {
+            justify-content: space-between;
+            width: 724px;
+        }
+        &__item {
+            margin-top: 52px;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .blog__item {
+        @include animation__speed(450ms, ease-in);
+        animation-delay: 1s;
+        animation-duration: 4s;
+        animation-fill-mode: both;
+
+        &:focus {
+            position: relative;
+            z-index: 1;
+        }
+
+        &:nth-child(1):focus {
+            transform: scale(1.2) translate(85%,0);
+        }
+
+        &:nth-child(2):focus {
+            transform: scale(1.2) translate(0,0);
+        }
+
+        &:nth-child(3):focus {
+            transform: scale(1.2) translate(-85%,0);
+        }
+    }
+    .blog__btn:hover {
+        background-color: #ffe26d;
+    }
+}
