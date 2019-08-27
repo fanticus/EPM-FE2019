@@ -10,6 +10,7 @@ const renderBlogContent = (arr, component) => {
     const getBlogItem = (item, imageSrc) => {
         const blogItem = document.createElement('div')
         const { id, title, ratings, topics } = item
+
         blogItem.className = 'col-12 col-sm-6 col-md-4 list__item blog__item'
         blogItem.tabindex = '0'
         blogItem.id = String(id)
@@ -33,9 +34,13 @@ const renderBlogContent = (arr, component) => {
     }
 
     const getDescriptionContainer = (title, ratings, topics) => {
+        const IsCheckTopics = topics.length !== 0
+        const IsCheckRatings = ratings.length !== 0
+        let classHeightContainer = 'blog__no__topics'
         const descriptionContainer = document.createElement('div')
         const date = '15 Jan, 2015'
-        const description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. A nulla, cum enim ex tenetur nobis earum eius pariatur quas error.'
+        const description = 'Lorem ipsum dolor sit amet, con­sectetur adipiscing elit. Pellen­tesque vel odio vel felis placerat pharetra ut vitae felis.'
+
         const getBlogTitle = (title) => {
             const titleComponent = document.createElement('h4')
             titleComponent.className = 'item__title blog__title'
@@ -59,14 +64,14 @@ const renderBlogContent = (arr, component) => {
 
         const getBlogTopics = (topics) => {
             const topicsComponent = document.createElement('p')
-            topicsComponent.className = ''
+            topicsComponent.className = 'blog__topic'
             topicsComponent.innerHTML = topics.join(', ')
             return topicsComponent
         }
 
         const getBlogRating = (ratings) => {
             const ratingComponent = document.createElement('p')
-            ratingComponent.className = ''
+            ratingComponent.className = 'blog__rating'
             ratingComponent.innerHTML = `Rating: ${ratings}`
             return ratingComponent
         }
@@ -77,13 +82,15 @@ const renderBlogContent = (arr, component) => {
             buttonComponent.innerHTML = 'read more'
             return buttonComponent
         }
+
         descriptionContainer.appendChild(getBlogTitle(title))
         descriptionContainer.appendChild(getBlogDate(date))
         descriptionContainer.appendChild(getBlogDescription(description))
-        descriptionContainer.appendChild(getBlogTopics(topics))
-        descriptionContainer.appendChild(getBlogRating(ratings))
+        if (IsCheckTopics) descriptionContainer.appendChild(getBlogTopics(topics))
+        if (IsCheckRatings) descriptionContainer.appendChild(getBlogRating(ratings))
         descriptionContainer.appendChild(getBlogButton())
-        descriptionContainer.className = 'list__item__description blog__container__description'
+        if (IsCheckTopics) classHeightContainer = ''
+        descriptionContainer.className = `list__item__description blog__container__description ${classHeightContainer}`
         return descriptionContainer
     }
 

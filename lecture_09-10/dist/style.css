@@ -7958,7 +7958,14 @@ a.text-dark:hover, a.text-dark:focus {
   margin-left: auto;
   margin-right: auto; }
   .blog__container__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
     text-align: center; }
+
+.blog__no__topics {
+  height: 300px; }
 
 .blog__item {
   padding-left: 15px;
@@ -7970,24 +7977,40 @@ a.text-dark:hover, a.text-dark:focus {
   margin-left: 16px;
   margin-right: 14px;
   margin-top: 32px;
-  margin-bottom: 16px; }
+  margin-bottom: 16px;
+  max-height: 72px;
+  min-height: 18px; }
 
 .blog__preview {
   width: 100%; }
 
-.blog__date, .blog__description {
+.blog__date {
   margin-bottom: 15px;
+  height: 23px;
   text-align: center;
   font: 13.5px/1.74 Helvetica;
   color: rgba(4, 4, 5, 0.5); }
 
 .blog__description {
+  text-align: center;
+  font: 13.5px/1.74 Helvetica;
   margin-bottom: 23px;
+  min-height: 83px;
+  max-height: 96px;
+  color: #040405; }
+
+.blog__topic {
+  font: 12px Helvetica;
+  color: rgba(4, 4, 5, 0.5); }
+
+.blog__rating {
+  font: 500 12px Helvetica;
   color: #040405; }
 
 .blog__btn {
   margin-left: auto;
   margin-right: auto;
+  margin-top: auto;
   background-color: #ececec; }
 
 @media screen and (max-width: 596px) {

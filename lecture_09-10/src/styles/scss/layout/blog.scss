@@ -2,34 +2,65 @@
     &__container {
         @include marginHorizontal(auto, auto);
         &__description {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 400px;
             text-align: center;
         }
     }
+
+    &__no__topics {
+        height: 300px;
+    }
+
     &__item {
         @include paddingHorizontal(15px, 15px);
         max-width: 237px;
         background-color: #ffffff;
     }
+
     &__title {
         @include marginHorizontal(16px, 14px);
         @include marginVertical(32px, 16px);
+        max-height: 72px;
+        min-height: 18px;
     }
+
     &__preview {
         width: 100%;
     }
+
     &__date {
         margin-bottom: 15px;
+        height: 23px;
         text-align: center;
         font: 13.5px/1.74 Helvetica;
         color: rgba(4, 4, 5, 0.5);
     }
+
     &__description {
-        @extend .blog__date;
+        text-align: center;
+        font: 13.5px/1.74 Helvetica;
         margin-bottom: 23px;
+        min-height: 83px;
+        max-height: 96px;
         color: #040405;
     }
+
+    &__topic {
+        font: 12px Helvetica;
+        color: rgba(4, 4, 5, 0.5);
+    }
+
+    &__rating {
+        font: 500 12px Helvetica;
+        color: #040405;
+    }
+
     &__btn {
         @include marginHorizontal(auto, auto);
+        margin-top: auto;
         background-color: #ececec;
     }
 }
@@ -56,6 +87,7 @@
         &__container {
             justify-content: space-around;
         }
+
         &__item {
             margin-top: 35px;
         }
@@ -69,6 +101,7 @@
             justify-content: space-between;
             width: 724px;
         }
+
         &__item {
             margin-top: 52px;
         }
