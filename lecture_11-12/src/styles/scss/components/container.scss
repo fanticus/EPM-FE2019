@@ -1,0 +1,22 @@
+.width__container {
+    @include marginHorizontal(auto, auto);
+    max-width: 1400px;
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .content__container {
+        width: 85%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .content__container {
+        width: 698px;
+    }
+}

@@ -1,0 +1,36 @@
+@mixin flex($direction, $wrap, $justify, $align, $align-content) {
+  display: flex; 
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+  align-content: $align-content;
+}
+@mixin marginHorizontal($left, $right) {
+  margin-left: $left;
+  margin-right: $right;
+}
+@mixin marginVertical($top, $bottom) {
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+@mixin paddingHorizontal($left, $right) {
+  padding-left: $left;
+  padding-right: $right;
+}
+@mixin paddingVertical($top, $bottom) {
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+@mixin animation__speed($time, $value) {
+  transition: all $time $value;
+}
+@mixin animation__item__nav() {
+  transform: scale(1.4, 1.4);
+}
+@mixin animation__item__pricing() {
+  transform: scale3d(1.2, 1.2, 1) rotateX(360deg);
+}
+@mixin animation__icon__footer() {
+  transform: rotateY(360deg);
+}
