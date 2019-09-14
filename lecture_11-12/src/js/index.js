@@ -1,2 +1,3 @@
-import BlogFunc from './blog/index'
-BlogFunc()
+import { Blog } from './components'
+
+Blog()
