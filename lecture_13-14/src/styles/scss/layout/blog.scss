@@ -84,6 +84,7 @@
 @media screen and (max-width: 768px) {
     .blog {
         @include paddingVertical(38px, 50px);
+        min-height: 600px;
         &__container {
             justify-content: space-around;
         }
@@ -97,6 +98,7 @@
 @media screen and (min-width: 768px) {
     .blog {
         @include paddingVertical(64px, 88px);
+        min-height: 650px;
         &__container {
             justify-content: space-between;
             width: 724px;

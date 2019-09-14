@@ -8024,7 +8024,8 @@ a.text-dark:hover, a.text-dark:focus {
 @media screen and (max-width: 768px) {
   .blog {
     padding-top: 38px;
-    padding-bottom: 50px; }
+    padding-bottom: 50px;
+    min-height: 600px; }
     .blog__container {
       justify-content: space-around; }
     .blog__item {
@@ -8033,7 +8034,8 @@ a.text-dark:hover, a.text-dark:focus {
 @media screen and (min-width: 768px) {
   .blog {
     padding-top: 64px;
-    padding-bottom: 88px; }
+    padding-bottom: 88px;
+    min-height: 650px; }
     .blog__container {
       justify-content: space-between;
       width: 724px; }

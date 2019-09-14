@@ -6,8 +6,8 @@ Api.prototype = {
     async getPosts() {
         try {
             const { posts } = config.url
-            const ResPosts = await fetch(posts)
-            return await ResPosts.json()
+            const resPosts = await fetch(posts)
+            return await resPosts.json()
         } catch(error) {
             console.log(`ERROR getPosts: ${error}`)
             return []
