@@ -1,0 +1,58 @@
+.advantage {
+    &__item {
+        max-width: 187px;
+        .advantage__icon {
+            @include flex(row, nowrap, center, center, center);
+            @include marginHorizontal(auto, auto);
+            margin-bottom: 29px;
+            background-color: #62497c;
+            border-radius: 50%;
+            width: 81px;
+            height: 81px;
+        }
+        .advantage__title {
+            margin-bottom: 18px;
+            font-weight: 700;
+            color: #62497c;
+        }
+        .advantage__description {
+            margin-bottom: 29px;
+            letter-spacing: -0.1px;
+            color: rgba(4, 4, 5, 0.5);
+        }
+        .advantage__btn {
+            background-color: #ffe26d;
+            color: #323232;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .advantage__item {
+        margin-top: 39px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .advantage__item {
+        margin-top: 59px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .advantage {
+        justify-content: space-around;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .advantage {
+        justify-content: space-between;
+        &__btn {
+            &:hover {
+                background-color: #62497c;
+                color: #ffffff;
+            }
+        }
+    }
+}
