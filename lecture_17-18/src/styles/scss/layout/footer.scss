@@ -1,0 +1,79 @@
+.footer {
+    padding-bottom: 115px;
+    &__lists__item {
+        margin-top: 78px;
+        &:nth-child(2) .footer__title {
+            margin-bottom: 24px;
+        }
+        .footer__title {
+            margin-bottom: 17px;
+            letter-spacing: -0.2px;
+            font-size: 10px;
+        }
+        .footer__list {
+            list-style: none;
+            .footer__item {
+                text-decoration: none;
+                text-align: center;
+                font: 13.5px/23px Helvetica;
+                color: #040405;
+                .footer__link {
+                    @include paddingHorizontal(10px, 10px);
+                    @extend .footer__item;
+                    cursor: pointer;
+                }
+            }
+        }
+        .social__list {
+            @include marginHorizontal(auto, auto);
+            width: 140px;
+            .social_item:nth-child(n+4) {
+                margin-top: 10px;
+            }
+            .social__icon {
+                color: #000000;
+                text-decoration: none;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .footer {
+        padding-bottom: 50px;
+        &__lists__item {
+            margin-top: 50px;
+        }
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .footer__lists {
+        @include marginHorizontal(auto, auto);
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer__lists {
+        justify-content: space-around;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .footer__lists {
+        width: 727px;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .social_item:hover .social__icon {
+        @include animation__icon__footer();
+        color: #62497c;
+    }
+    .social__icon {
+        @include animation__speed(350ms, ease-in-out);
+    }
+}

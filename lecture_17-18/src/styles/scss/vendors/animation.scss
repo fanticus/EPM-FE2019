@@ -1,0 +1,62 @@
+@keyframes left {
+    to { transition-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+    5% {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+    10% { transform: translate3d(20%, 0, 0); }
+    35% { transform: translate3d(-40%, 0, 0); }
+    65% { transform: translate3d(30%, 0, 0); }
+    80% { transform: translate3d(-20%, 0, 0); }
+    to { transform: translateZ(0); }
+}
+
+@keyframes right {
+    to { transition-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+    5% {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0);
+    }
+    10% { transform: translate3d(-20%, 0, 0); }
+    35% { transform: translate3d(40%, 0, 0); }
+    65% { transform: translate3d(-30%, 0, 0); }
+    80% { transform: translate3d(20%, 0, 0); }
+    to { transform: translateZ(0); }
+}
+
+@keyframes up {
+    to { transition-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+    5% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    10% { transform: translate3d(0, 20%, 0); }
+    35% { transform: translate3d(0, -40%, 0); }
+    65% { transform: translate3d(0, 30%, 0); }
+    80% { transform: translate3d(0, -20%, 0); }
+    to { transform: translateZ(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1, 1); }
+    20% { transform: scale(1.2, 1.2); }
+    30% { transform: scale(1, 1); }
+    90% { transform: scale(1.2, 1.2); }
+    100% { transform: scale(1, 1); }
+}
+
+.animation__move__left {
+    animation-name: left;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.animation__move__right {
+    @extend .animation__move__left;
+    animation-name: right;
+}
+
+.animation__move__up {
+    @extend .animation__move__left;
+    animation-name: up;
+}

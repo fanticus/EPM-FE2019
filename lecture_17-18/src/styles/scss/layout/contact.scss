@@ -1,0 +1,119 @@
+.contact {
+    &__map {
+        @include paddingHorizontal(0, 0);
+    }
+
+    &__info {
+        padding-bottom: 52px;
+        background-color: #ffe26d;
+    }
+
+    &__form {
+        @include flex(column, nowrap, flex-start, stretch, stretch);
+        .form__label {
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font: 800 10px $font__main;
+            color: #323232;
+        }
+
+        .form__input {
+            @include paddingHorizontal(10px, 10px);
+            margin-bottom: 19px;
+            height: 44px;
+            border: none;
+            box-shadow: 0.5px 0.9px 1px 0 rgba(22, 22, 23, 0.09);
+            background-color: #fefefe;
+            font: 19px/21px $font__main;
+        }
+
+        .form__area {
+            padding-top: 10px;
+            margin-bottom: 15px;
+            height: 145px;
+            resize: none;
+        }
+
+        .form__btn {
+            @extend .form__input;
+            margin-bottom: 0;
+            background-color: #62497c;
+            border-radius: 0;
+            font: 600 10px $font__main;
+            color: #fefefe;
+        }
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .contact__map {
+        height: 300px;
+    }
+
+    .form__input {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    .contact__map {
+        height: 350px;
+    }
+
+    .contact__form {
+        @include marginHorizontal(auto, auto);
+        width: 311px;
+    }
+
+    .form__input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contact__info {
+        padding-top: 38px;
+    }
+    .contact__title {
+        margin-bottom: 35px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .contact__map {
+        height: auto;
+    }
+
+    .contact__form {
+        @include marginHorizontal(auto, auto);
+        width: auto;
+    }
+
+    .contact__info {
+        padding-top: 42px;
+        padding-left: 43.4px;
+    }
+
+    .contact__title {
+        margin-bottom: 22px;
+        text-align: left;
+    }
+
+    .form__input {
+        width: 311px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .form__input {
+        width: 311px;
+    }
+    .form__btn {
+        @include animation__speed(450ms, ease-in);
+        &:hover {
+            background-color: #fefefe;
+            color: #323232;
+        }
+    }
+}
