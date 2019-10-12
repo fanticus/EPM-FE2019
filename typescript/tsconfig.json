@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",
+    "module": "es6",
+    "allowJs": false,
+    "sourceMap": true,
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true
+  }
+}

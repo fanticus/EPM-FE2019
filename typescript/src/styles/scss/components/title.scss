@@ -1,0 +1,22 @@
+.title {
+    margin: 0;
+    letter-spacing: 0.1px;
+    text-align: center;
+    font: 700 43px $font__main;
+    color: #040405;
+    &--invert {
+        color: #fefefe;
+    }
+}
+
+@media (max-width: 992px) {
+    .title {
+        font-size: 37px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 27px;
+    }
+}

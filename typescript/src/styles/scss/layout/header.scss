@@ -1,0 +1,19 @@
+.header {
+  @include paddingVertical(41px, 41px);
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  &__container {
+    @include flex(row, nowrap, space-between, flex-start, space-between);
+    @include marginHorizontal(auto, auto);
+  }
+  &__logo {
+      text-transform: uppercase;
+      letter-spacing: -2.1px;
+      font: 700 26.5px/23px $font__main;
+      color: #fff;
+  }
+  &__nav {}
+}

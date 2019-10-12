@@ -1,0 +1,77 @@
+.subscription {
+    padding-bottom: 50px;
+    background-image: url('../../../src/img/subscription/background.png');    
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 329px;
+    &__form {
+        @include marginHorizontal(auto, auto);
+        justify-content: flex-end;
+        align-items: flex-end;
+        &__input {
+            padding-left: 16px;
+            border-top-left-radius: 2.9px;
+            border-bottom-left-radius: 2.9px;
+            background-color: #fefefe;
+            border: none;
+            font: 500 19px/40.5px $font__main;
+            &:placeholder {
+                color: #d8d8d8;
+            }
+        }
+        &__btn {
+            @include animation__speed(450ms, ease-in);
+            background-color: #ffe26d;
+            border-top-right-radius: 2.9px;
+            border-bottom-right-radius: 2.9px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .subscription {
+        padding-top: 38px;
+        &__form {
+            margin-top: 35px;
+            width: 311px;
+            &__input {
+                height: 44px;
+            }
+            &__btn {
+                margin-top: 15px;
+                height: 44px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .subscription__form {
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .subscription {
+        padding-top: 49px;
+        &__form {
+            margin-top: 28px;
+            width: 546px;
+            &__input {
+                height: 55px;
+            }
+            &__btn {
+                height: 55px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .subscription__form {
+        &__btn:hover {
+            background-color: #62497c;
+            color: #ffffff;
+        }
+    }
+}
