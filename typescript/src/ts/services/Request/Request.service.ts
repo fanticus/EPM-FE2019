@@ -1,4 +1,4 @@
-export default class ApiService {
+export default class Request {
     getData(url: string) {
         return new Promise((resolve, reject) => {
             fetch(url)

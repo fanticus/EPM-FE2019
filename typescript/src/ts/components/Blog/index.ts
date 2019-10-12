@@ -1,15 +1,15 @@
-import { ApiService as apiObject } from '../../services'
-import BlogRenderer from './BlogRenderer.service'
-import { PostDataInterface } from './BlogRenderer.interface'
+import { Request as requestObject } from '../../services'
+import Blog from './Blog.service'
+import { PostDataInterface } from './Blog.interface'
 
 export default (): void => {
-    const { ApiService, config } = apiObject
+    const { Request, config } = requestObject
     const { posts } = config.url
-    const Api = new ApiService()
+    const Api = new Request()
     Api.getData(posts)
         .then((postsArr: Array<PostDataInterface>) => {
-            const newPostsArr = BlogRenderer.getPosts(postsArr)
-            BlogRenderer.render(newPostsArr)
+            const newPostsArr = Blog.getPosts(postsArr)
+            Blog.render(newPostsArr)
         })
         .catch(error => {
             throw new Error(error)

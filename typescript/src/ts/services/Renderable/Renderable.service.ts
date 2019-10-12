@@ -1,8 +1,8 @@
-import { AbstractRenderer } from './Render.abstract'
-import { RenderItemInterface, CreateItemInterface } from './Render.interface'
+import AbstractRenderer from '../AbstractRenderer'
+import { CreateItemInterface } from './Renderable.interface'
 import { createElement } from './createElement'
 
-export default class RenderService implements AbstractRenderer {
+export default class Renderable implements AbstractRenderer {
     createElement(item: CreateItemInterface): object | void {
         return createElement(item)
     }

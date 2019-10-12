@@ -1,4 +1,4 @@
-import { LooseObject } from './Api.interface'
+import { LooseObject } from './Request.interface'
 
 const CONFIG: LooseObject = {
     url: {

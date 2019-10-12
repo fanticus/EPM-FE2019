@@ -1,3 +1,3 @@
-import RenderService from './RenderService'
-import * as ApiService from './ApiService'
-export { RenderService, ApiService }
+import Renderable from './Renderable'
+import * as Request from './Request'
+export { Renderable, Request }

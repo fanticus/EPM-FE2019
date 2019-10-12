@@ -1,4 +1,4 @@
-import { BlogPostDataInterface, ComponentInterface } from './BlogRenderer.interface'
+import { BlogPostDataInterface, ComponentInterface } from './Blog.interface'
 
 const render = (arr: Array<BlogPostDataInterface>, createFunc: (item: object) => object | void) => {
     const blogContainer = createFunc({

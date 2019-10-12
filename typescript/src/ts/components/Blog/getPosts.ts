@@ -1,6 +1,7 @@
-import { PostDataInterface, BlogPostDataInterface } from './BlogRenderer.interface'
+import { PostDataInterface, BlogPostDataInterface } from './Blog.interface'
 
 const getPosts = (posts: Array<PostDataInterface>) => {
+    if (!posts.length) throw 'No posts'
     const addRatings = (arr: Array<PostDataInterface>) => {
         return arr.map((postObj) => {
             const { ratings } = postObj

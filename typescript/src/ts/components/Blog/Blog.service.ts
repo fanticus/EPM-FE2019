@@ -1,12 +1,11 @@
-import { RenderService } from '../../services'
-import { PostDataInterface, BlogPostDataInterface } from './BlogRenderer.interface'
+import { Renderable } from '../../services'
+import { PostDataInterface, BlogPostDataInterface } from './Blog.interface'
 import getPosts from './getPosts'
 import render from './render'
 
-class BlogRenderer extends RenderService {
+class BlogRenderer extends Renderable {
 
     getPosts(posts: Array<PostDataInterface>): Array<BlogPostDataInterface> {
-        if (!posts.length) throw 'No posts'
         return getPosts(posts)
     }
     render(arr: Array<BlogPostDataInterface>): void {

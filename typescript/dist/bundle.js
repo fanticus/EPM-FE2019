@@ -109,15 +109,15 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 
 /***/ }),
 
-/***/ "./src/ts/components/Blog/BlogRenderer.service.ts":
-/*!********************************************************!*\
-  !*** ./src/ts/components/Blog/BlogRenderer.service.ts ***!
-  \********************************************************/
+/***/ "./src/ts/components/Blog/Blog.service.ts":
+/*!************************************************!*\
+  !*** ./src/ts/components/Blog/Blog.service.ts ***!
+  \************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services */ \"./src/ts/services/index.ts\");\n/* harmony import */ var _getPosts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getPosts */ \"./src/ts/components/Blog/getPosts.ts\");\n/* harmony import */ var _render__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./render */ \"./src/ts/components/Blog/render.ts\");\n\r\n\r\n\r\nclass BlogRenderer extends _services__WEBPACK_IMPORTED_MODULE_0__[\"RenderService\"] {\r\n    getPosts(posts) {\r\n        if (!posts.length)\r\n            throw 'No posts';\r\n        return Object(_getPosts__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(posts);\r\n    }\r\n    render(arr) {\r\n        Object(_render__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(arr.slice(0, 3), this.createElement);\r\n    }\r\n}\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (new BlogRenderer());\r\n\n\n//# sourceURL=webpack:///./src/ts/components/Blog/BlogRenderer.service.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services */ \"./src/ts/services/index.ts\");\n/* harmony import */ var _getPosts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getPosts */ \"./src/ts/components/Blog/getPosts.ts\");\n/* harmony import */ var _render__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./render */ \"./src/ts/components/Blog/render.ts\");\n\r\n\r\n\r\nclass BlogRenderer extends _services__WEBPACK_IMPORTED_MODULE_0__[\"Renderable\"] {\r\n    getPosts(posts) {\r\n        return Object(_getPosts__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(posts);\r\n    }\r\n    render(arr) {\r\n        Object(_render__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(arr.slice(0, 3), this.createElement);\r\n    }\r\n}\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (new BlogRenderer());\r\n\n\n//# sourceURL=webpack:///./src/ts/components/Blog/Blog.service.ts?");
 
 /***/ }),
 
@@ -129,7 +129,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ser
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nconst getPosts = (posts) => {\r\n    const addRatings = (arr) => {\r\n        return arr.map((postObj) => {\r\n            const { ratings } = postObj;\r\n            return Object.assign(Object.assign({}, postObj), { ratings: getAverage(ratings) });\r\n        });\r\n    };\r\n    const getAverage = (arr) => {\r\n        return Math.floor(arr.reduce((a, b) => a + b) / arr.length);\r\n    };\r\n    const blogData = addRatings(posts);\r\n    return blogData.sort((a, b) => b.ratings - a.ratings);\r\n};\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (getPosts);\r\n\n\n//# sourceURL=webpack:///./src/ts/components/Blog/getPosts.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\nconst getPosts = (posts) => {\r\n    if (!posts.length)\r\n        throw 'No posts';\r\n    const addRatings = (arr) => {\r\n        return arr.map((postObj) => {\r\n            const { ratings } = postObj;\r\n            return Object.assign(Object.assign({}, postObj), { ratings: getAverage(ratings) });\r\n        });\r\n    };\r\n    const getAverage = (arr) => {\r\n        return Math.floor(arr.reduce((a, b) => a + b) / arr.length);\r\n    };\r\n    const blogData = addRatings(posts);\r\n    return blogData.sort((a, b) => b.ratings - a.ratings);\r\n};\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (getPosts);\r\n\n\n//# sourceURL=webpack:///./src/ts/components/Blog/getPosts.ts?");
 
 /***/ }),
 
@@ -141,7 +141,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nconst getPosts = (posts) => {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services */ \"./src/ts/services/index.ts\");\n/* harmony import */ var _BlogRenderer_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BlogRenderer.service */ \"./src/ts/components/Blog/BlogRenderer.service.ts\");\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (() => {\r\n    const { ApiService, config } = _services__WEBPACK_IMPORTED_MODULE_0__[\"ApiService\"];\r\n    const { posts } = config.url;\r\n    const Api = new ApiService();\r\n    Api.getData(posts)\r\n        .then((postsArr) => {\r\n        const newPostsArr = _BlogRenderer_service__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getPosts(postsArr);\r\n        _BlogRenderer_service__WEBPACK_IMPORTED_MODULE_1__[\"default\"].render(newPostsArr);\r\n    })\r\n        .catch(error => {\r\n        throw new Error(error);\r\n    });\r\n});\r\n\n\n//# sourceURL=webpack:///./src/ts/components/Blog/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services */ \"./src/ts/services/index.ts\");\n/* harmony import */ var _Blog_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Blog.service */ \"./src/ts/components/Blog/Blog.service.ts\");\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (() => {\r\n    const { Request, config } = _services__WEBPACK_IMPORTED_MODULE_0__[\"Request\"];\r\n    const { posts } = config.url;\r\n    const Api = new Request();\r\n    Api.getData(posts)\r\n        .then((postsArr) => {\r\n        const newPostsArr = _Blog_service__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getPosts(postsArr);\r\n        _Blog_service__WEBPACK_IMPORTED_MODULE_1__[\"default\"].render(newPostsArr);\r\n    })\r\n        .catch(error => {\r\n        throw new Error(error);\r\n    });\r\n});\r\n\n\n//# sourceURL=webpack:///./src/ts/components/Blog/index.ts?");
 
 /***/ }),
 
@@ -181,75 +181,75 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _com
 
 /***/ }),
 
-/***/ "./src/ts/services/ApiService/Api.service.ts":
-/*!***************************************************!*\
-  !*** ./src/ts/services/ApiService/Api.service.ts ***!
-  \***************************************************/
+/***/ "./src/ts/services/Renderable/Renderable.service.ts":
+/*!**********************************************************!*\
+  !*** ./src/ts/services/Renderable/Renderable.service.ts ***!
+  \**********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return ApiService; });\nclass ApiService {\r\n    getData(url) {\r\n        return new Promise((resolve, reject) => {\r\n            fetch(url)\r\n                .then(response => response.json())\r\n                .then(result => resolve(result))\r\n                .catch(error => reject(error));\r\n        });\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack:///./src/ts/services/ApiService/Api.service.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Renderable; });\n/* harmony import */ var _createElement__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createElement */ \"./src/ts/services/Renderable/createElement.ts\");\n\r\nclass Renderable {\r\n    createElement(item) {\r\n        return Object(_createElement__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"])(item);\r\n    }\r\n    render(arr) {\r\n        throw new Error('Method not exist.');\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack:///./src/ts/services/Renderable/Renderable.service.ts?");
 
 /***/ }),
 
-/***/ "./src/ts/services/ApiService/config.ts":
-/*!**********************************************!*\
-  !*** ./src/ts/services/ApiService/config.ts ***!
-  \**********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nconst CONFIG = {\r\n    url: {\r\n        posts: 'https://my-json-server.typicode.com/fanticus/EPM-FE2019/posts'\r\n    }\r\n};\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (CONFIG);\r\n\n\n//# sourceURL=webpack:///./src/ts/services/ApiService/config.ts?");
-
-/***/ }),
-
-/***/ "./src/ts/services/ApiService/index.ts":
-/*!*********************************************!*\
-  !*** ./src/ts/services/ApiService/index.ts ***!
-  \*********************************************/
-/*! exports provided: ApiService, config */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Api_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Api.service */ \"./src/ts/services/ApiService/Api.service.ts\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"ApiService\", function() { return _Api_service__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; });\n\n/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config */ \"./src/ts/services/ApiService/config.ts\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"config\", function() { return _config__WEBPACK_IMPORTED_MODULE_1__[\"default\"]; });\n\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/ts/services/ApiService/index.ts?");
-
-/***/ }),
-
-/***/ "./src/ts/services/RenderService/Render.service.ts":
-/*!*********************************************************!*\
-  !*** ./src/ts/services/RenderService/Render.service.ts ***!
-  \*********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return RenderService; });\n/* harmony import */ var _createElement__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createElement */ \"./src/ts/services/RenderService/createElement.ts\");\n\r\nclass RenderService {\r\n    createElement(item) {\r\n        return Object(_createElement__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"])(item);\r\n    }\r\n    render(arr) {\r\n        throw new Error('Method not implemented.');\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack:///./src/ts/services/RenderService/Render.service.ts?");
-
-/***/ }),
-
-/***/ "./src/ts/services/RenderService/createElement.ts":
-/*!********************************************************!*\
-  !*** ./src/ts/services/RenderService/createElement.ts ***!
-  \********************************************************/
+/***/ "./src/ts/services/Renderable/createElement.ts":
+/*!*****************************************************!*\
+  !*** ./src/ts/services/Renderable/createElement.ts ***!
+  \*****************************************************/
 /*! exports provided: createElement */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"createElement\", function() { return createElement; });\nconst createElement = (item) => {\r\n    const { componentData: { tag, className }, callback, parentComponent } = item;\r\n    const Component = document.createElement(tag);\r\n    Component.className = className;\r\n    if (callback)\r\n        callback(Component);\r\n    if (parentComponent)\r\n        parentComponent.appendChild(Component);\r\n    if (tag === 'div')\r\n        return Component;\r\n};\r\n\n\n//# sourceURL=webpack:///./src/ts/services/RenderService/createElement.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"createElement\", function() { return createElement; });\nconst createElement = (item) => {\r\n    const { componentData: { tag, className }, callback, parentComponent } = item;\r\n    const Component = document.createElement(tag);\r\n    Component.className = className;\r\n    if (callback)\r\n        callback(Component);\r\n    if (parentComponent)\r\n        parentComponent.appendChild(Component);\r\n    if (tag === 'div')\r\n        return Component;\r\n};\r\n\n\n//# sourceURL=webpack:///./src/ts/services/Renderable/createElement.ts?");
 
 /***/ }),
 
-/***/ "./src/ts/services/RenderService/index.ts":
-/*!************************************************!*\
-  !*** ./src/ts/services/RenderService/index.ts ***!
-  \************************************************/
+/***/ "./src/ts/services/Renderable/index.ts":
+/*!*********************************************!*\
+  !*** ./src/ts/services/Renderable/index.ts ***!
+  \*********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Render_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Render.service */ \"./src/ts/services/RenderService/Render.service.ts\");\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (_Render_service__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\r\n\n\n//# sourceURL=webpack:///./src/ts/services/RenderService/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Renderable_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Renderable.service */ \"./src/ts/services/Renderable/Renderable.service.ts\");\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (_Renderable_service__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\r\n\n\n//# sourceURL=webpack:///./src/ts/services/Renderable/index.ts?");
+
+/***/ }),
+
+/***/ "./src/ts/services/Request/Request.service.ts":
+/*!****************************************************!*\
+  !*** ./src/ts/services/Request/Request.service.ts ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Request; });\nclass Request {\r\n    getData(url) {\r\n        return new Promise((resolve, reject) => {\r\n            fetch(url)\r\n                .then(response => response.json())\r\n                .then(result => resolve(result))\r\n                .catch(error => reject(error));\r\n        });\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack:///./src/ts/services/Request/Request.service.ts?");
+
+/***/ }),
+
+/***/ "./src/ts/services/Request/config.ts":
+/*!*******************************************!*\
+  !*** ./src/ts/services/Request/config.ts ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst CONFIG = {\r\n    url: {\r\n        posts: 'https://my-json-server.typicode.com/fanticus/EPM-FE2019/posts'\r\n    }\r\n};\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (CONFIG);\r\n\n\n//# sourceURL=webpack:///./src/ts/services/Request/config.ts?");
+
+/***/ }),
+
+/***/ "./src/ts/services/Request/index.ts":
+/*!******************************************!*\
+  !*** ./src/ts/services/Request/index.ts ***!
+  \******************************************/
+/*! exports provided: Request, config */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Request_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Request.service */ \"./src/ts/services/Request/Request.service.ts\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"Request\", function() { return _Request_service__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; });\n\n/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config */ \"./src/ts/services/Request/config.ts\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"config\", function() { return _config__WEBPACK_IMPORTED_MODULE_1__[\"default\"]; });\n\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/ts/services/Request/index.ts?");
 
 /***/ }),
 
@@ -257,11 +257,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Ren
 /*!**********************************!*\
   !*** ./src/ts/services/index.ts ***!
   \**********************************/
-/*! exports provided: RenderService, ApiService */
+/*! exports provided: Renderable, Request */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _RenderService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RenderService */ \"./src/ts/services/RenderService/index.ts\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"RenderService\", function() { return _RenderService__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; });\n\n/* harmony import */ var _ApiService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ApiService */ \"./src/ts/services/ApiService/index.ts\");\n/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, \"ApiService\", function() { return _ApiService__WEBPACK_IMPORTED_MODULE_1__; });\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/ts/services/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Renderable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Renderable */ \"./src/ts/services/Renderable/index.ts\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"Renderable\", function() { return _Renderable__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; });\n\n/* harmony import */ var _Request__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Request */ \"./src/ts/services/Request/index.ts\");\n/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, \"Request\", function() { return _Request__WEBPACK_IMPORTED_MODULE_1__; });\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/ts/services/index.ts?");
 
 /***/ })
 

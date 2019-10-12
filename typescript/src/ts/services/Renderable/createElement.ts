@@ -1,4 +1,4 @@
-import { CreateItemInterface, ComponentDataInterface } from './Render.interface'
+import { CreateItemInterface, ComponentDataInterface } from './Renderable.interface'
 
 export const createElement = (item: CreateItemInterface): void | object => {
 	const { componentData: { tag, className }, callback, parentComponent } = item
