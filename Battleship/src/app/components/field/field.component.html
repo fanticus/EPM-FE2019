@@ -1,0 +1,26 @@
+<div class="field__container">
+  <div class="field__column-coordinate">
+    <p
+      class="field__text"
+      *ngFor="let letter of letters; let letterPosition = index">
+      {{letters[letterPosition]}}
+    </p>
+  </div>
+  <div style="flex-direction: row; display: flex;">
+    <div class="field__row-coordinate">
+        <p
+          class="field__text"
+          *ngFor="let number of letters; let numberPosition = index">
+          {{numbers[numberPosition]}}
+        </p>
+    </div>
+    <div class="field">
+      <div *ngFor="let row of cells; let rowPosition = index">
+        <app-cell
+          *ngFor="let cell of cells; let cellPosition = index"
+          attr.id={{cells[rowPosition][cellPosition]}}>
+        </app-cell>
+      </div>
+    </div>
+  </div>
+</div>
