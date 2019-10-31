@@ -25,7 +25,6 @@ export class FieldService {
   }
 
   public getField(ships?: ShipsData[]): void {
-    console.log('ships', ships);
     if (this.fieldUser.length > 0) this.fieldUser = [];
     for (let x = 0; x < this.fieldSize; x++) {
       const rows: ShipData[] = [];

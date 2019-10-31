@@ -46,7 +46,6 @@ export class ShipsService {
     for (let i = 0; i < size; i++) {
       const indexArr: number = coordX + (i * directionX);
       const indexItem: number = coordY + (i * directionY);
-      console.log(this.occupiedCells[indexArr][indexItem]);
       if (this.occupiedCells[indexArr][indexItem]) {
         return true;
       }
@@ -55,10 +54,8 @@ export class ShipsService {
   };
 
   private oneTypeShips = (num: number, size: number): ShipsData[] => {
-    this.occupiedCells = new Array(this.fieldSize).fill(false).map(() => new Array(this.fieldSize).fill(false));
 
     return new Array(num).fill(null).map((item) => {
-      console.log(item);
       const coords: CoordsData[] = [];
       let coordX: number;
       let coordY: number;
@@ -89,6 +86,7 @@ export class ShipsService {
 
   getShips(): ShipsData[] {
     const ships: ShipsData[] = [];
+    this.occupiedCells = new Array(this.fieldSize).fill(false).map(() => new Array(this.fieldSize).fill(false));
     this.shipsData.forEach((ship) => {
       const { number, size } = ship;
       ships.push(...this.oneTypeShips(number, size));
