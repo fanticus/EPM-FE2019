@@ -1,8 +1,15 @@
 <div class="container">
-  <h1 class="container__title">Battleship</h1>
+  <h1 class="container__title">{{title}}</h1>
   <div class="container__fields">
-    <app-field></app-field>
-    <app-field></app-field>
+    <app-field
+      [isEnemy]="false"
+      [fieldArr]="fieldService.fieldUser">
+    </app-field>
+    <app-settings></app-settings>
+    <app-field
+      [isEnemy]="true"
+      [fieldArr]="fieldService.fieldBot">
+    </app-field>
   </div>
 </div>
 

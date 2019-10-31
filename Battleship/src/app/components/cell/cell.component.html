@@ -1,1 +1,8 @@
-<div class="cell"></div>
+<div
+  class="cell"
+  [ngClass]="{
+    water: 'water',
+    ship: 'ship'
+  }[type]"
+  (click) = "onClick()">
+</div>

@@ -6,13 +6,15 @@
   padding-top: 100px;
   &__title {
     font-size: 40px;
-    color: #7c0dff;
+    font-weight: bold;
+    color: #00f;
   }
   &__fields {
     display: flex;
     flex: 1;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
   }
 }
